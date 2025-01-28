@@ -80,7 +80,7 @@ Examples of how our method works on several real images. You can find inference 
 </p>
 
 ### Inference Notebook
-We provide a [Jupiter Notebook](https://colab.research.google.com/#fileId=https://github.com/AIRI-Institute/StyleFeatureEditor/blob/main/notebook/StyleFeatureEditor_inference.ipynb) that demonstrates the workings of our method. It includes downloading all the necessary components, running our method on several examples and creating a gif.
+We provide a [Jupiter Notebook](https://colab.research.google.com/#fileId=https://github.com/ncihnegn/StyleFeatureEditor/blob/fix/notebook/StyleFeatureEditor_inference.ipynb) that demonstrates the workings of our method. It includes downloading all the necessary components, running our method on several examples and creating a gif.
 
 ### Inference single sample
 If you need to edit single or several images, you can use `SimpleRunner` from [runners/simple_runner.py](runners/simple_runner.py). You need to initialize it with the path to the sfe checkpoints. To edit the image you need to use `.edit()` method and pass path to the input image, name of desired editing, power of desired editing and path where to save edited image:
