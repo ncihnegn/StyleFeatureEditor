@@ -13,9 +13,10 @@ from models.hyperinverter.stylegan2_ada import Discriminator
 from utils.class_registry import ClassRegistry
 from utils.common_utils import get_keys
 from utils.model_utils import toogle_grad
-from configs.paths import DefaultPaths
+from configs.paths import DefaultPathsClass
 from argparse import Namespace
 from training.loggers import BaseTimer
+from dataclasses import field
 
 
 sys.path.append("./utils")
@@ -26,7 +27,7 @@ methods_registry = ClassRegistry()
 class FSEFull(nn.Module):
     def __init__(self,
                  device="cuda:0",
-                 paths=DefaultPaths,
+                 paths=field(default_factory=DefaultPathsClass),
                  checkpoint_path=None,
                  inverter_pth=None):
         super(FSEFull, self).__init__()
@@ -152,7 +153,7 @@ class FSEFull(nn.Module):
 class FSEInverter(nn.Module):
     def __init__(self,
                  device="cuda:0",
-                 paths=DefaultPaths,
+                 paths=field(default_factory=DefaultPathsClass),
                  checkpoint_path=None):
         super(FSEInverter, self).__init__()
         self.opts = {
