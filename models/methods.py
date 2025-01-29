@@ -29,7 +29,7 @@ class FSEFull(nn.Module):
                  paths=DefaultPathsClass(),
                  checkpoint_path=None,
                  inverter_pth=None):
-        #super(FSEFull, self).__init__()
+        super().__init__()
         self.opts = {
             "device": device,
             "checkpoint_path": checkpoint_path,
@@ -154,7 +154,7 @@ class FSEInverter(nn.Module):
                  device="cuda:0",
                  paths=DefaultPathsClass(),
                  checkpoint_path=None):
-        super(FSEInverter, self).__init__()
+        super().__init__()
         self.opts = {
             "device": device,
             "checkpoint_path": checkpoint_path,
