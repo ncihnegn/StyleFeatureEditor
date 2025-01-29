@@ -36,9 +36,10 @@ class FSEFull(nn.Module):
             "checkpoint_path": checkpoint_path,
             "stylegan_size": 1024
         }
-        if hasattr(paths, 'value'):
-            self.opts.update(paths.value)
+        self.opts.update(paths)
+        print(self.opts)
         self.opts = Namespace(**self.opts)
+        print(self.opts)
 
         self.device = device
         self.inverter_pth = inverter_pth
@@ -162,9 +163,10 @@ class FSEInverter(nn.Module):
             "checkpoint_path": checkpoint_path,
             "stylegan_size": 1024
         }
-        if hasattr(paths, 'value'):
-            self.opts.update(paths.value)
+        self.opts.update(paths)
+        print(self.opts)
         self.opts = Namespace(**self.opts)
+        print(self.opts)
 
         self.device = device
         self.encoder = self.set_encoder()
