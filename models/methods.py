@@ -16,7 +16,6 @@ from utils.model_utils import toogle_grad
 from configs.paths import DefaultPathsClass
 from argparse import Namespace
 from training.loggers import BaseTimer
-from dataclasses import field
 
 
 sys.path.append("./utils")
@@ -27,7 +26,7 @@ methods_registry = ClassRegistry()
 class FSEFull(nn.Module):
     def __init__(self,
                  device="cuda:0",
-                 paths: DefaultPathsClass = field(default_factory=DefaultPathsClass),
+                 paths=DefaultPathsClass(),
                  checkpoint_path=None,
                  inverter_pth=None):
         super(FSEFull, self).__init__()
@@ -37,9 +36,7 @@ class FSEFull(nn.Module):
             "stylegan_size": 1024
         }
         self.opts.update(paths)
-        print(self.opts)
         self.opts = Namespace(**self.opts)
-        print(self.opts)
 
         self.device = device
         self.inverter_pth = inverter_pth
@@ -155,7 +152,7 @@ class FSEFull(nn.Module):
 class FSEInverter(nn.Module):
     def __init__(self,
                  device="cuda:0",
-                 paths: DefaultPathsClass = field(default_factory=DefaultPathsClass),
+                 paths=DefaultPathsClass(),
                  checkpoint_path=None):
         super(FSEInverter, self).__init__()
         self.opts = {
@@ -164,9 +161,7 @@ class FSEInverter(nn.Module):
             "stylegan_size": 1024
         }
         self.opts.update(paths)
-        print(self.opts)
         self.opts = Namespace(**self.opts)
-        print(self.opts)
 
         self.device = device
         self.encoder = self.set_encoder()

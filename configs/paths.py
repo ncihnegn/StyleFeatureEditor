@@ -4,7 +4,7 @@ from dataclasses import dataclass, asdict, fields
 models_dir = "pretrained_models/"
 
 
-@dataclass
+@dataclass(frozen=True)
 class DefaultPathsClass:
     psp_path: str = models_dir + "psp_ffhq_encode.pt"
     e4e_path: str = models_dir + "e4e_ffhq_encode.pt"
